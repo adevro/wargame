@@ -1,6 +1,6 @@
 
 
-public class CardGame1 {
+public class CardGame2 {
     public static void main(String[] args) {
         String cardtype[] = {"H", "S", "D", "C"};
         String cardnumb[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"};
@@ -69,13 +69,13 @@ public class CardGame1 {
             deck1[size1++] = card1;
             deck1[size1++] = card2;
             toggleAce();
-            System.out.println(getCardValue('A')); //to see the new value of the ace if needed, remove the comment
+            //System.out.println(getCardValue('A')); //to see the new value of the ace if needed, remove the comment
         } else if (value2 > value1) {
             System.out.println("Player 2 wins this round.");
             deck2[size2++] = card1;
             deck2[size2++] = card2;
             toggleAce();
-            System.out.println(getCardValue('A')); //to see the value of the ace, remove the comment from the start of the line
+            //System.out.println(getCardValue('A')); //to see the value of the ace, remove the comment from the start of the line
         } else { // War condition
             System.out.println("It's a WAR!");
 

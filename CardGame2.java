@@ -6,7 +6,6 @@ public class CardGame2 {
         String cardnumb[] = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "T", "J", "Q", "K"};
         String cards[] = new String[52];
         int index = 0;
-
         // Fill the cards array
         for (int i = 0; i < cardtype.length; i++) {
             for (int j = 0; j < cardnumb.length; j++) {
@@ -49,6 +48,8 @@ public class CardGame2 {
     int size1 = 26; // Number of cards in player 1's deck
     int size2 = 26; // Number of cards in player 2's deck
     int rounds = 0;
+    int score1 = 0;
+    int score2 = 0;
 
     do {
         // Check if any player has run out of cards
@@ -68,12 +69,18 @@ public class CardGame2 {
             System.out.println("Player 1 wins this round.");
             deck1[size1++] = card1;
             deck1[size1++] = card2;
+            score1 = score1 + value1 + value2;
+            //System.out.println("Player 1 score: " + score1);
+            //System.out.println("Player 2 score: " + score2);
             toggleAce();
             //System.out.println(getCardValue('A')); //to see the new value of the ace if needed, remove the comment
         } else if (value2 > value1) {
             System.out.println("Player 2 wins this round.");
             deck2[size2++] = card1;
             deck2[size2++] = card2;
+            score2 = score2 + value1+ value2;
+            //System.out.println("Player 1 score: " + score1);
+            //System.out.println("Player 2 score: " + score2);
             toggleAce();
             //System.out.println(getCardValue('A')); //to see the value of the ace, remove the comment from the start of the line
         } else { // War condition
@@ -102,12 +109,14 @@ public class CardGame2 {
 
             if (warValue1 > warValue2) {
                 System.out.println("Player 1 wins the war.");
+                score1 = score1 + warValue1 + warValue2;
                 for (int i = 0; i < 5; i++) {
                     deck1[size1++] = deck1[current + i];
                     deck1[size1++] = deck2[current + i];
                 }
             } else if (warValue2 > warValue1) {
                 System.out.println("Player 2 wins the war.");
+                score2 = score2 + warValue1 + warValue2;
                 for (int i = 0; i < 5; i++) {
                     deck2[size2++] = deck2[current + i];
                     deck2[size2++] = deck1[current + i];

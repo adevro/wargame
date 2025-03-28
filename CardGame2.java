@@ -51,6 +51,7 @@ public class CardGame2 {
     int score1 = 0;
     int score2 = 0;
 
+
     do {
         // Check if any player has run out of cards
         if (size1 == 0 || size2 == 0) {

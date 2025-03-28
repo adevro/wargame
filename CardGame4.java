@@ -21,7 +21,7 @@ public class CardGame4 {
             int totalRounds = iterations(deck1, deck2);
 
             // Determine the winner of this game
-            if (deck1.isEmpty()) {
+            if (deck1.isEmpty()||deck2.size()>deck1.size()) {
                 System.out.println(""); //Formatting, can be changed
                 System.out.println("=============================");
                 System.out.println("Player 2 wins Game " + gameNumber + "!");
@@ -46,7 +46,8 @@ public class CardGame4 {
         System.out.println("");
         if (wins1 > wins2) {
             System.out.println("Player 1 wins the Best of 3 Series!");
-        } else {
+        } 
+        if(wins2>wins1) {
             System.out.println("Player 2 wins the Best of 3 Series!");
         }
         System.out.println("");
@@ -81,7 +82,7 @@ public class CardGame4 {
 
     public static int iterations(ArrayList<String> deck1, ArrayList<String> deck2) {
         int rounds = 0;
-        int maxRounds = 100;  // Max, can be changed
+        int maxRounds = 60;  // Max, can be changed
 
         while (!deck1.isEmpty() && !deck2.isEmpty()) {
             String card1 = deck1.remove(0);
@@ -153,27 +154,14 @@ public class CardGame4 {
                 }
 
                 // Forced War
-                String warCard1 = deck1.get(4);
-                String warCard2 = deck2.get(4);
-                int warValue1 = getCardValue(warCard1.charAt(0));
-                int warValue2 = getCardValue(warCard2.charAt(0));
-
-                System.out.println("War cards: " + warCard1 + " vs " + warCard2);
-
-                if (warValue1 > warValue2) {
-                    System.out.println("Player 1 wins the forced war.");
-                    for (int i = 0; i < 5; i++) {
-                        deck1.add(deck1.remove(0));
-                        deck1.add(deck2.remove(0));
-                    }
-                } else {
-                    System.out.println("Player 2 wins the forced war.");
-                    for (int i = 0; i < 5; i++) {
-                        deck2.add(deck2.remove(0));
-                        deck2.add(deck1.remove(0));
-                    }
+                if (deck1.size()>deck2.size()){
+                    System.out.println("Player 1 wins the game");
+                    break;
                 }
-                break;  // End the game after forced war
+                else{
+                    System.out.println("Player 2 wins the game");
+                    break;
+                }
             }
 
             rounds++;

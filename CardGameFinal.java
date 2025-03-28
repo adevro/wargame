@@ -2,30 +2,23 @@
  * CSCE 111 500
  * 03-27-2025
  * 
- * RULES:
- * Game Objective: (How do you win?)
- * You are going to be given half a deck of shuffled cards. 
- * The game's objective is to get all the cards from the other player.
- * If you take all the cards you win the round. 
- * The player who wins 2 out of 3 rounds wins (if playing the 3 round version).
- * 
- * This is a game between 2 players, with each player receiving 26 cards
+ * his is a game between 2 players, with each player receiving 26 cards - Natalie
  * 
  * There are 13 cards per card type(diamonds, hearts, clovers, spades), from ace to king. 
  * The smallest value is 2, and the biggest value is A. Each card will have a numerical value. 
  * If it's a number, its value will be the actual number. 
- * If it's a letter T, J, Q, K, or A, its value will be 10, 11, 12, 13, and 14 (or 1), respectively.
+ * If it's a letter T, J, Q, K, or A, its value will be 10, 11, 12, 13, and 14 (or 1), respectively. - Federico
  * 
  * If the cards tie, there is a war. 
  * The players have to place three cards upside down and then flip one card, the highest card wins all cards on the table. 
- * If the cards tie again, repeat the process. If a player runs out of cards, they will lose.
+ * If the cards tie again, repeat the process. If a player runs out of cards, they will lose. - Dominic
  * 
  * Each win will award points and the game will function on a “best out of 3” system. 
- * In order to actually win the game, the player must win all cards twice in two separate games.
+ * In order to actually win the game, the player must win all cards twice in two separate games. - Dominic
  * 
- * Each round, the ace will switch from being the highest ranked card (14) to the lowest ranked (1).
+ * Each round, the ace will switch from being the highest ranked card (14) to the lowest ranked (1). - Natalie
  * 
- * The players can decide if they want to play 1 round or 3 rounds via the Scanner function.
+ * The players can decide if they want to play 1 round or 3 rounds via the Scanner function. - Federico
  * 
  * At the start of each round, both players flip over the top card of their deck. 
  * Whoever has the higher card wins and places them at the bottom of their deck. 
@@ -39,6 +32,45 @@ import java.util.Scanner;
 public class CardGameFinal {
     public static void main(String[] args) {
         Scanner scnr = new Scanner(System.in);
+        System.out.println("What is your name?");
+        String name = scnr.next();
+        System.out.println("Welcome " + name + "! Do you want to view the game rules?");
+        String response = scnr.next();
+        if(response.equalsIgnoreCase("yes")){
+            System.out.println("RULES:\r\n" + //
+            "Game Objective: (How do you win?)\r\n" + //
+            "You are going to be given half a deck of shuffled cards. \r\n" + //
+            "The game's objective is to get all the cards from the other player.\r\n" + //
+            "If you take all the cards you win the round. \r\n" + //
+            "The player who wins 2 out of 3 rounds wins (if playing the 3 round version).\r\n" + //
+            "\r\n" + //
+            "This is a game between 2 players, with each player receiving 26 cards\r\n" + //
+            "\r\n" + //
+            "There are 13 cards per card type(diamonds, hearts, clovers, spades), from ace to king. \r\n" + //
+            "The smallest value is 2, and the biggest value is A. Each card will have a numerical value. \r\n" + //
+            "If it's a number, its value will be the actual number. \r\n" + //
+            "If it's a letter T, J, Q, K, or A, its value will be 10, 11, 12, 13, and 14 (or 1), respectively.\r\n" + //
+            "\r\n" + //
+            "If the cards tie, there is a war. \r\n" + //
+            "The players have to place three cards upside down and then flip one card, the highest card wins all cards on the table. \r\n" + //
+            "If the cards tie again, repeat the process. If a player runs out of cards, they will lose.\r\n" + //
+            "\r\n" + //
+            "Each win will award points and the game will function on a best out of 3 system. \r\n" + //
+            "In order to actually win the game, the player must win all cards twice in two separate games.\r\n" + //
+            "\r\n" + //
+            "Each round, the ace will switch from being the highest ranked card (14) to the lowest ranked (1).\r\n" + //
+            "\r\n" + //
+            "The players can decide if they want to play 1 round or 3 rounds via the Scanner function.\r\n" + //
+            "\r\n" + //
+            "At the start of each round, both players flip over the top card of their deck. \r\n" + //
+            "Whoever has the higher card wins and places them at the bottom of their deck. \r\n" + //
+            "If the cards are the same, each player places three cards facing down, flips a fourth card to determine who the winner is, and takes all the cards. \r\n" + //
+            "If there’s another tie, the process repeats until someone wins. The game ends when a player runs out of cards, and the other has all the cards. \r\n" + //
+            "To make it more interesting, the overall winner will be the one who wins 2 out of 3 rounds.");
+            System.out.println();
+        }else if(response.equalsIgnoreCase("no")){
+            System.out.print("");
+        }
         System.out.println("How many rounds do you want to play, 1 or 3?");
         int numbergames = scnr.nextInt();
         int wins1 = 0;
